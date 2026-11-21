@@ -1,0 +1,16 @@
+{
+    "required_api_version": "2",
+    "name": "Project Opener",
+    "description": "Open projects using VSCodium",
+    "developer_name": "Cyril Li",
+    "icon": "images/vscodium.png",
+    "preferences": [
+        {
+            "id": "kw",
+            "type": "keyword",
+            "name": "Keyword",
+            "description": "Keyword to trigger the extension",
+            "default_value": "p"
+        }
+    ]
+}
