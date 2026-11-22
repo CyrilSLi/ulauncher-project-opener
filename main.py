@@ -6,7 +6,7 @@ from ulauncher.api.shared.action.RenderResultListAction import RenderResultListA
 from ulauncher.api.shared.action.RunScriptAction import RunScriptAction
 
 from pathlib import Path
-from rapidfuzz import fuzz, process
+from rapidfuzz import fuzz, process, utils
 
 project_dir = Path("~/Projects").expanduser()
 nested_prefix = "0_"
@@ -38,7 +38,7 @@ class KeywordQueryEventListener(EventListener):
                 icon="images/vscodium.png",
                 name=i[0],
                 on_enter=RunScriptAction(cmd.format(path=str(project_dir / i[0])))
-            ) for i in process.extract(query, projects, scorer=fuzz_ratio, limit=10)
+            ) for i in process.extract(query, projects, scorer=fuzz_ratio, processor=utils.default_process, limit=10)
         ])
 
 if __name__ == '__main__':
